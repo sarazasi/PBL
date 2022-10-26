@@ -29,7 +29,7 @@ public class homeFragment extends Fragment {
             new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.walkFragment);
+                Navigation.findNavController(view).navigate(R.id.walkFragment); //ボタンを押すとウォーキング画面に遷移
               }
             }
     );
