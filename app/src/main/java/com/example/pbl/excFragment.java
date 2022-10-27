@@ -34,7 +34,7 @@ public class excFragment extends Fragment {
         //アクションを作成
         excFragmentDirections.ActionExcFragmentToHomeFragment action = excFragmentDirections.actionExcFragmentToHomeFragment();
         //アクションにArgumentを引き渡す
-        action.setNum((new Random()).nextInt(100));
+        action.setNum((new Random()).nextInt(100)); //ここの引数の値がhomeへ送られる
         //画面を遷移
         Navigation.findNavController(v).navigate(action);
       }
