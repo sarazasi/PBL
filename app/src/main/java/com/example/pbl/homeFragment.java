@@ -39,9 +39,10 @@ public class homeFragment extends Fragment {
             }
     );
 
+    //受け取った値を表示
     TextView txt = view.findViewById(R.id.txtValue);
     Bundle args = requireArguments();
-    txt.setText("乱数" + homeFragmentArgs.fromBundle(args).getNum());
+    txt.setText("乱数" + homeFragmentArgs.fromBundle(args).getNum()); //homeFragmentArgs.fromBundle(args).getNum() で得られる値が受け取った値
 
     return view;
   }
