@@ -1,5 +1,6 @@
 package com.example.pbl;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,8 +9,12 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.util.Objects;
 
 public class homeFragment extends Fragment {
+  @SuppressLint("SetTextI18n")
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
     //レイアウトファイルを取得
@@ -33,6 +38,10 @@ public class homeFragment extends Fragment {
               }
             }
     );
+
+    TextView txt = view.findViewById(R.id.txtValue);
+    Bundle args = requireArguments();
+    txt.setText("乱数" + homeFragmentArgs.fromBundle(args).getNum());
 
     return view;
   }

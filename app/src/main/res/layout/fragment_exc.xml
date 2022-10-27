@@ -79,4 +79,14 @@
       app:layout_constraintBottom_toTopOf="@+id/btnHome"
       app:layout_constraintStart_toStartOf="parent" />
 
+  <Button
+      android:id="@+id/btnNext"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="156dp"
+      android:layout_marginBottom="44dp"
+      android:text="乱数生成"
+      app:layout_constraintBottom_toTopOf="@+id/textView"
+      app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

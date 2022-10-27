@@ -5,9 +5,12 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.Random;
 
 public class excFragment extends Fragment {
   @Override
@@ -23,6 +26,20 @@ public class excFragment extends Fragment {
               }
             }
     );
+
+    //clickイベントリスナーを登録(値受け渡し)
+    view.findViewById(R.id.btnNext).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        //アクションを作成
+        excFragmentDirections.ActionExcFragmentToHomeFragment action = excFragmentDirections.actionExcFragmentToHomeFragment();
+        //アクションにArgumentを引き渡す
+        action.setNum((new Random()).nextInt(100));
+        //画面を遷移
+        Navigation.findNavController(v).navigate(action);
+      }
+    });
+
     return view;
   }
 }
