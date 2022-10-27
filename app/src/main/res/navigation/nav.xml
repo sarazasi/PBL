@@ -16,6 +16,10 @@
     <action
         android:id="@+id/action_homeFragment_to_walkFragment"
         app:destination="@id/walkFragment" />
+    <argument
+        android:name="num"
+        app:argType="integer"
+        android:defaultValue="0" />
   </fragment>
   <fragment
       android:id="@+id/excFragment"
