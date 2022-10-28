@@ -17,4 +17,12 @@
       app:layout_constraintHorizontal_bias="1.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
+
+  <com.google.android.gms.maps.MapView
+      android:id="@+id/mapView"
+      android:layout_width="272dp"
+      android:layout_height="309dp"
+      android:apiKey="AIzaSyC3AHtfVJlA4w1oPA-zTMfep93YfxRtJsI"
+      tools:layout_editor_absoluteX="67dp"
+      tools:layout_editor_absoluteY="139dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
