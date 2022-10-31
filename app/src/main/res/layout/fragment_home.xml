@@ -13,6 +13,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="32dp"
+      android:layout_marginTop="60dp"
       android:layout_marginEnd="32dp"
       android:dateTextAppearance="@style/TextAppearance.AppCompat.Display1"
       android:minDate="10/26/2022"
@@ -23,29 +24,29 @@
       app:layout_constraintTop_toTopOf="parent" />
 
   <TextView
-      android:id="@+id/textbtn2"
+      android:id="@+id/textView2"
       android:layout_width="112dp"
       android:layout_height="56dp"
       android:layout_marginStart="145dp"
-      android:layout_marginTop="60dp"
+      android:layout_marginTop="12dp"
       android:layout_marginEnd="145dp"
       android:text="計算結果"
       android:textAppearance="@style/TextAppearance.AppCompat.Large"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.444"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textbtn1" />
+      app:layout_constraintTop_toBottomOf="@+id/textView" />
 
   <TextView
-      android:id="@+id/textbtn1"
+      android:id="@+id/textView"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="160dp"
-      android:layout_marginEnd="160dp"
+      android:layout_marginStart="134dp"
+      android:layout_marginTop="60dp"
+      android:layout_marginEnd="144dp"
       android:text="今日の運動量"
       android:textAppearance="@style/TextAppearance.AppCompat.Large"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.357"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/calendarView5" />
 
@@ -54,7 +55,8 @@
       style="?android:attr/buttonBarButtonStyle"
       android:layout_width="134dp"
       android:layout_height="52dp"
-      android:layout_marginEnd="32dp"
+      android:layout_marginEnd="40dp"
+      android:layout_marginBottom="56dp"
       android:backgroundTint="#C5AC60"
       android:text="@string/walk"
       android:textColor="#050303"
@@ -66,22 +68,12 @@
       style="?android:attr/buttonBarButtonStyle"
       android:layout_width="151dp"
       android:layout_height="52dp"
-      android:layout_marginStart="32dp"
+      android:layout_marginStart="40dp"
+      android:layout_marginBottom="56dp"
       android:backgroundTint="#5296AA"
       android:text="@string/exc"
       android:textColor="#000000"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toStartOf="parent" />
-
-  <TextView
-      android:id="@+id/txtValue"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="175dp"
-      android:layout_marginTop="10dp"
-      android:text="TextView"
-      android:textSize="20sp"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textbtn1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
