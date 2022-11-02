@@ -16,7 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class walkFragment extends Fragment {
+public class walkFragment extends Fragment implements OnMapReadyCallback{
   private MapView mMapView;
 
   private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
