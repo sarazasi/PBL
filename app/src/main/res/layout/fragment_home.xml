@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -25,8 +26,8 @@
 
   <TextView
       android:id="@+id/textView2"
-      android:layout_width="112dp"
-      android:layout_height="56dp"
+      android:layout_width="204dp"
+      android:layout_height="40dp"
       android:layout_marginStart="145dp"
       android:layout_marginTop="12dp"
       android:layout_marginEnd="145dp"
@@ -41,9 +42,9 @@
       android:id="@+id/textView"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="134dp"
+      android:layout_marginStart="139dp"
       android:layout_marginTop="61dp"
-      android:layout_marginEnd="144dp"
+      android:layout_marginEnd="139dp"
       android:text="@string/Undo"
       android:textAppearance="@style/TextAppearance.AppCompat.Large"
       app:layout_constraintEnd_toEndOf="parent"
@@ -57,7 +58,7 @@
       android:layout_height="52dp"
       android:layout_marginEnd="40dp"
       android:layout_marginBottom="56dp"
-      android:backgroundTint="#C5AC60"
+      android:backgroundTint="#C5AE69"
       android:text="@string/walk"
       android:textColor="#050303"
       app:layout_constraintBottom_toBottomOf="parent"
