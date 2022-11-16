@@ -125,6 +125,18 @@ public class excFragment extends Fragment {
             }
         });
 
+        //clickイベントリスナーを登録(値受け渡し)
+        view.findViewById(R.id.btnNext).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //アクションを作成
+                excFragmentDirections.ActionExcFragmentToHomeFragment action = excFragmentDirections.actionExcFragmentToHomeFragment();
+                //アクションにArgumentを引き渡す
+                action.setNum((new Random()).nextInt(100)); //ここの引数の値がhomeへ送られる
+                // 画面を遷移
+                Navigation.findNavController(v).navigate(action);
+            }
+        });
         return view;
-  }
+    }
 }

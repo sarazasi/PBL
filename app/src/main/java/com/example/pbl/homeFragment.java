@@ -40,7 +40,6 @@ public class homeFragment extends Fragment {
     );
 
 
-
     TextView txt = view.findViewById(R.id.txtValue);
     Bundle args = requireArguments();
     txt.setText(" " + homeFragmentArgs.fromBundle(args).getNum());

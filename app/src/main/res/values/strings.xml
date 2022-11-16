@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">PBL</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="exc">運動</string>
     <string name="walk">ウォーキング</string>
     <string name="home">ホーム</string>
+    <string name="Keisan">計算結果</string>
+    <string name="Undo">今日の運動量</string>
+    <string name="app_name">pbl</string>
 </resources>
