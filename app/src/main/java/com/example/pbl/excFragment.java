@@ -65,7 +65,7 @@ public class excFragment extends Fragment {
                 //アクションにArgumentを引き渡す
                 action.setNum(50);
                 //画面を遷移
-                Navigation.findNavController(v).navigate(action);
+                Navigation.findNavController(v).navigate(R.id.excMovie);
             }
         });
 
@@ -79,7 +79,7 @@ public class excFragment extends Fragment {
                 //アクションにArgumentを引き渡す
                 action.setNum(100);
                 //画面を遷移
-                Navigation.findNavController(v).navigate(action);
+                Navigation.findNavController(v).navigate(R.id.excMovie);
             }
         });
 
@@ -93,7 +93,7 @@ public class excFragment extends Fragment {
                 //アクションにArgumentを引き渡す
                 action.setNum(30);
                 //画面を遷移
-                Navigation.findNavController(v).navigate(action);
+                Navigation.findNavController(v).navigate(R.id.excMovie);
             }
         });
 
@@ -107,7 +107,7 @@ public class excFragment extends Fragment {
                 //アクションにArgumentを引き渡す
                 action.setNum(50);
                 //画面を遷移
-                Navigation.findNavController(v).navigate(action);
+                Navigation.findNavController(v).navigate(R.id.excMovie);
             }
         });
 
@@ -121,7 +121,7 @@ public class excFragment extends Fragment {
                 //アクションにArgumentを引き渡す
                 action.setNum(100);
                 //画面を遷移
-                Navigation.findNavController(v).navigate(action);
+                Navigation.findNavController(v).navigate(R.id.excMovie);
             }
         });
 
