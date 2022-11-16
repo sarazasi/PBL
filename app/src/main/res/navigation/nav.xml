@@ -29,6 +29,9 @@
     <action
         android:id="@+id/action_excFragment_to_homeFragment"
         app:destination="@id/homeFragment" />
+    <action
+        android:id="@+id/action_excFragment_to_excMovie"
+        app:destination="@id/excMovie" />
   </fragment>
   <fragment
       android:id="@+id/walkFragment"
@@ -38,5 +41,14 @@
     <action
         android:id="@+id/action_walkFragment_to_homeFragment"
         app:destination="@id/homeFragment" />
+  </fragment>
+  <fragment
+      android:id="@+id/excMovie"
+      android:name="com.example.pbl.excMovie"
+      android:label="activity_exc_movie"
+      tools:layout="@layout/activity_exc_movie" >
+    <action
+        android:id="@+id/action_excMovie_to_excFragment"
+        app:destination="@id/excFragment" />
   </fragment>
 </navigation>

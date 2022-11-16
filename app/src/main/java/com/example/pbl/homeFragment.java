@@ -12,9 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Objects;
 
 public class homeFragment extends Fragment {
   @SuppressLint("SetTextI18n")
@@ -42,10 +39,12 @@ public class homeFragment extends Fragment {
             }
     );
 
-    //受け取った値を表示
+
+
     TextView txt = view.findViewById(R.id.txtValue);
     Bundle args = requireArguments();
-    txt.setText("乱数" + homeFragmentArgs.fromBundle(args).getNum()); //homeFragmentArgs.fromBundle(args).getNum() で得られる値が受け取った値
+    txt.setText(" " + homeFragmentArgs.fromBundle(args).getNum());
+
 
     //カレンダー textView
     CalendarView cal;
@@ -55,7 +54,7 @@ public class homeFragment extends Fragment {
               @Override
               public void onSelectedDayChange(@NonNull CalendarView v, int year, int month, int dayOfMonth) {
                 //カレンダー textView
-                TextView txt = view.findViewById(R.id.textView);
+                TextView txt = view.findViewById(R.id.textbtn1);
                 txt.setText(dayOfMonth + "日の運動量");
               }
             }
