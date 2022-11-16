@@ -111,7 +111,7 @@ public class excFragment extends Fragment {
             }
         });
 
-        //clickイベントリスナーを登録(値受け渡し)
+        //激しい運動のテキストボタン
         view.findViewById(R.id.textbtn3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
