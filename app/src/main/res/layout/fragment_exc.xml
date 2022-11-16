@@ -17,27 +17,27 @@
       app:layout_constraintStart_toStartOf="parent" />
 
   <ImageView
-      android:id="@+id/imageView4"
-      android:layout_width="70dp"
-      android:layout_height="70dp"
-      android:layout_marginStart="20dp"
-      android:layout_marginBottom="132dp"
-      android:src="@android:drawable/ic_media_play"
-      app:layout_constraintBottom_toTopOf="@+id/imageView5"
-      app:layout_constraintStart_toStartOf="parent" />
-
-  <ImageView
-      android:id="@+id/imageView5"
+      android:id="@+id/playbtn2"
       android:layout_width="70dp"
       android:layout_height="70dp"
       android:layout_marginStart="20dp"
       android:layout_marginBottom="128dp"
       android:src="@android:drawable/ic_media_play"
-      app:layout_constraintBottom_toTopOf="@+id/imageView6"
+      app:layout_constraintBottom_toTopOf="@+id/playbtn3"
       app:layout_constraintStart_toStartOf="parent" />
 
   <ImageView
-      android:id="@+id/imageView6"
+      android:id="@+id/playbtn1"
+      android:layout_width="70dp"
+      android:layout_height="70dp"
+      android:layout_marginStart="20dp"
+      android:layout_marginBottom="132dp"
+      android:src="@android:drawable/ic_media_play"
+      app:layout_constraintBottom_toTopOf="@+id/playbtn2"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <ImageView
+      android:id="@+id/playbtn3"
       android:layout_width="70dp"
       android:layout_height="70dp"
       android:layout_marginStart="20dp"
@@ -47,29 +47,29 @@
       app:layout_constraintStart_toStartOf="parent" />
 
   <TextView
-      android:id="@+id/textView"
+      android:id="@+id/textbtn1"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="90dp"
       android:layout_marginBottom="161dp"
       android:text="座ったままできる運動"
       android:textSize="30sp"
-      app:layout_constraintBottom_toTopOf="@+id/textView2"
+      app:layout_constraintBottom_toTopOf="@+id/textbtn2"
       app:layout_constraintStart_toStartOf="parent" />
 
   <TextView
-      android:id="@+id/textView2"
+      android:id="@+id/textbtn2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="90dp"
       android:layout_marginBottom="155dp"
       android:text="立って行う運動"
       android:textSize="34sp"
-      app:layout_constraintBottom_toTopOf="@+id/textView3"
+      app:layout_constraintBottom_toTopOf="@+id/textbtn3"
       app:layout_constraintStart_toStartOf="parent" />
 
   <TextView
-      android:id="@+id/textView3"
+      android:id="@+id/textbtn3"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="90dp"
@@ -86,7 +86,7 @@
       android:layout_marginStart="156dp"
       android:layout_marginBottom="44dp"
       android:text="乱数生成"
-      app:layout_constraintBottom_toTopOf="@+id/textView"
+      app:layout_constraintBottom_toTopOf="@+id/textbtn1"
       app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
