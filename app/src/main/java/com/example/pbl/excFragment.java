@@ -1,5 +1,7 @@
 package com.example.pbl;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,7 +11,10 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 public class excFragment extends Fragment {
@@ -125,6 +130,28 @@ public class excFragment extends Fragment {
             }
         });
 
+        //clickイベントリスナーを登録(値受け渡し)
+        view.findViewById(R.id.btnNext).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //databaseに値を保存
+                SimpleDatabaseHelper helper = new SimpleDatabaseHelper(getActivity());
+
+                try(SQLiteDatabase db = helper.getWritableDatabase()){
+                    ContentValues cv = new ContentValues();
+                    //現在の日付を取得
+                    Date date = new Date();
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-d"); //dateFormat.format(date)で現在の日付の文字列を取得
+                    //乱数を生成
+                    int point = new Random().nextInt(100);
+                    cv.put("date", dateFormat.format(date));
+                    cv.put("point", point);
+                    db.insertWithOnConflict("Points", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+                }
+                // 画面を遷移
+                Navigation.findNavController(v).navigate(R.id.homeFragment);
+            }
+        });
         return view;
-  }
+    }
 }

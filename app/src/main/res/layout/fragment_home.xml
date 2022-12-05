@@ -25,29 +25,16 @@
       app:layout_constraintTop_toTopOf="parent" />
 
   <TextView
-      android:id="@+id/textView2"
-      android:layout_width="204dp"
-      android:layout_height="40dp"
-      android:layout_marginStart="145dp"
-      android:layout_marginTop="12dp"
-      android:layout_marginEnd="145dp"
-      android:text="@string/Keisan"
-      android:textAppearance="@style/TextAppearance.AppCompat.Large"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.444"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-  <TextView
-      android:id="@+id/textView"
+      android:id="@+id/textbtn1"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="139dp"
-      android:layout_marginTop="61dp"
+      android:layout_marginTop="40dp"
       android:layout_marginEnd="139dp"
       android:text="@string/Undo"
       android:textAppearance="@style/TextAppearance.AppCompat.Large"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/calendarView5" />
 
@@ -77,4 +64,14 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toStartOf="parent" />
 
+  <TextView
+      android:id="@+id/txtValue"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:text=" - "
+      android:textSize="20sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textbtn1" />
 </androidx.constraintlayout.widget.ConstraintLayout>
