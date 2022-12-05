@@ -13,22 +13,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import android.database.sqlite.SQLiteDatabase;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 
 public class homeFragment extends Fragment {
-  private SimpleDatabaseHelper helper = null; //databaseの準備
+  private SimpleDatabaseHelper helper = null; //databaseに接続するhelperを作成
 
   @SuppressLint("SetTextI18n")
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
     //レイアウトファイルを取得
     View view = inflater.inflate(R.layout.fragment_home, container, false);
-    //clickイベントリスナーを登録(運動)
+
+    //運動画面に移るボタンの処理
     view.findViewById(R.id.btnExc).setOnClickListener(
             new View.OnClickListener() {
               @Override
@@ -38,7 +37,7 @@ public class homeFragment extends Fragment {
             }
     );
 
-    //clickイベントリスナーを登録(ウォーキング)
+    //ウォーキング画面に移るボタンの処理
     view.findViewById(R.id.btnWalk).setOnClickListener(
             new View.OnClickListener() {
               @Override
@@ -48,22 +47,10 @@ public class homeFragment extends Fragment {
             }
     );
 
-    //databaseに接続するhelperを作成
-    helper = new SimpleDatabaseHelper(getActivity());
+    // TODO: 2022/12/06 databaseの整理(登録から一週間経過したデータを消す) 
+    
 
-    //選択日の運動量を表示
-    /*TextView txt = view.findViewById(R.id.txtValue);
-    Bundle args = requireArguments();
-    txt.setText(" " + homeFragmentArgs.fromBundle(args).getNum());
-    */
 
-    //受け取った運動量をdatabaseに保存
-    /*Date date = new Date();
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); //dateFormat.format(date)で現在の日付の文字列を取得
-    try(SQLiteDatabase db = helper.getWritableDatabase()){
-      db.execSQL("INSERT INTO Points(date, point)" +
-              "VALUES()");
-    }*/
 
     //カレンダー textView
     CalendarView cal;
@@ -73,13 +60,14 @@ public class homeFragment extends Fragment {
               @Override
               public void onSelectedDayChange(@NonNull CalendarView v, int year, int month, int dayOfMonth) {
                 //カレンダー textView 選択日の運動量を表示
-                TextView txt = view.findViewById(R.id.textbtn1);
+                TextView txt = view.findViewById(R.id.text_play_sit);
                 txt.setText(dayOfMonth + "日の運動量");
 
                 //選択日の運動量を表示
                 txt = view.findViewById(R.id.txtValue);
 
                 //選択日の運動量を検索
+                helper = new SimpleDatabaseHelper(getActivity());
                 String[] cols = {"date","point"}; //検索に用いる列を抽出
                 String[] params = {String.valueOf(year) + '-' + String.valueOf(month + 1) + '-' + String.valueOf(dayOfMonth)}; //検索する日付を作成
                 try (SQLiteDatabase db = helper.getReadableDatabase();
@@ -94,6 +82,20 @@ public class homeFragment extends Fragment {
               }
             }
     );
+
+    //カレンダーの選択可能日を過去一週間に設定
+    //下限
+    Calendar min = Calendar.getInstance();
+    min.add(Calendar.DATE, -7);
+    long minTimeInMills = min.getTimeInMillis();
+
+    //上限
+    Calendar max = Calendar.getInstance();
+    max.add(Calendar.DATE, 0);
+    long maxTimeInMillis = max.getTimeInMillis();
+
+    cal.setMinDate(minTimeInMills);
+    cal.setMaxDate(maxTimeInMillis);
 
     return view;
   }
