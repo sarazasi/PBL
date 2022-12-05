@@ -25,7 +25,7 @@
       app:layout_constraintTop_toTopOf="parent" />
 
   <TextView
-      android:id="@+id/textbtn1"
+      android:id="@+id/text_play_sit"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="139dp"
@@ -68,10 +68,10 @@
       android:id="@+id/txtValue"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="170dp"
       android:layout_marginTop="10dp"
-      android:text="TextView"
+      android:text=" - "
       android:textSize="20sp"
+      app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textbtn1" />
+      app:layout_constraintTop_toBottomOf="@+id/text_play_sit" />
 </androidx.constraintlayout.widget.ConstraintLayout>
