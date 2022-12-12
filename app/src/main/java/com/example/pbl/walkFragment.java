@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.model.LatLng;
 
@@ -27,6 +28,8 @@ public class walkFragment extends Fragment {
   double distance = 0;
   // 前回の更新時の位置情報
   Location lastLocation = null;
+  LocationListener locationListener = null;
+  GoogleMap googleMap;
   @SuppressLint("MissingInflatedId")
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,11 +37,16 @@ public class walkFragment extends Fragment {
     View view = inflater.inflate(R.layout.fragment_walk, container, false);
     //clickイベントリスナーを登録(運動)
     view.findViewById(R.id.btnHome2).setOnClickListener(
+            //homeアクティビティに遷移
             v -> Navigation.findNavController(v).navigate(R.id.homeFragment)
     );
+    // Mapviewを取得
     mapView = (MapView) view.findViewById(R.id.map);
     mapView.onCreate(savedInstanceState);
-    mapView.getMapAsync(googleMap -> {
+
+    //Mapviewを表示
+    mapView.getMapAsync(gMap -> {
+      googleMap = gMap;
       LocationManager locationManager = (LocationManager) requireActivity().getSystemService(Context.LOCATION_SERVICE);
       if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
               ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -50,26 +58,19 @@ public class walkFragment extends Fragment {
       double latitude = location.getLatitude();
       double longitude = location.getLongitude();
       if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-        // TODO: Consider calling
-        //    ActivityCompat#requestPermissions
-        // here to request the missing permissions, and then overriding
-        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-        //                                          int[] grantResults)
-        // to handle the case where the user grants the permission. See the documentation
-        // for ActivityCompat#requestPermissions for more details.
         return;
       }
-      googleMap.setMyLocationEnabled(true);
-      googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 16.0f));
+      gMap.setMyLocationEnabled(true);
+      gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 16.0f));
       Log.i("DEBUG", "onMapReady");
     });
     LocationManager locationManager = (LocationManager) requireActivity().getSystemService(Context.LOCATION_SERVICE);
-    final LocationListener[] locationListener = {null};
+
     // clickイベントリスナーを登録(移動距離記録開始)
     view.findViewById(R.id.start).setOnClickListener(v -> {
       lastLocation = null;
       // 移動距離の記録を開始するコード
-      locationListener[0] = new LocationListener() {
+      locationListener = new LocationListener() {
         @SuppressLint({"SetTextI18n", "DefaultLocale"})
         @Override
         public void onLocationChanged(Location location) {
@@ -84,6 +85,10 @@ public class walkFragment extends Fragment {
           TextView distanceView = (TextView) view.findViewById(R.id.distanceView);
           // 移動距離を表示
           distanceView.setText("移動距離: " + String.format("%.1f", distance) + "m");
+          double latitude = location.getLatitude();
+          double longitude = location.getLongitude();
+          // 地図の中心を更新
+          googleMap.animateCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude, longitude)));
         }
 
         @Override
@@ -93,10 +98,10 @@ public class walkFragment extends Fragment {
         @Override
         public void onProviderDisabled(String provider) { }
       };
-      locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener[0]);
+      locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
     });
     // clickイベントリスナーを登録(移動距離記録終了)
-    view.findViewById(R.id.stop).setOnClickListener(v -> locationManager.removeUpdates(locationListener[0]));
+    view.findViewById(R.id.stop).setOnClickListener(v -> locationManager.removeUpdates(locationListener));
     return view;
   }
 

@@ -6,4 +6,7 @@
   <string name="home">ホーム</string>
   <string name="Keisan">計算結果</string>
   <string name="Undo">今日の運動量</string>
+  <string name="mapInfo">現在地の地図です</string>
+  <string name="start">開始</string>
+  <string name="stop">終了</string>
 </resources>
